@@ -27,7 +27,7 @@ class UserController extends AbstractController
       'name' => $user->getName(),
       'email' => $user->getEmail(),
       'adress' => [
-        'street' =>$adress->getStreet(),
+        'street' => $adress->getStreet(),
         'city' => $adress->getCity()->getName(),
         'zip' => $adress->getCity()->getZip()->getCode(),
       ],
