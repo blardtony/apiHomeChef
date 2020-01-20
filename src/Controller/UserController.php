@@ -10,22 +10,24 @@ use Symfony\Component\HttpKernel\Exception\HttpException;
 
 use App\Entity\User;
 
+/**
+ * @Route("/user", name="user_")
+ */
 class UserController extends AbstractController
 {
   /**
-   * @Route("/user/{id}", name="user")
+   * @Route("/{id}", name="id")
    */
   public function index($id)
   {
     $user = $this->getDoctrine()->getRepository(User::class)->find($id);
     $adress = $user->getAdress();
+
     return $this->json([
-      'id' => $user->getId(),
       'name' => $user->getName(),
       'email' => $user->getEmail(),
-      'id Google' => $user->getIdGoogle(),
       'adress' => [
-        'rue' =>$adress->getStreet()->getName(),
+        'street' =>$adress->getStreet()->getName(),
         'city' => $adress->getCity()->getName(),
         'zip' => $adress->getZip()->getCode(),
       ],
