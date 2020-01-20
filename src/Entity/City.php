@@ -21,6 +21,11 @@ class City
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Zip", inversedBy="cities")
+     */
+    private $zip;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +39,18 @@ class City
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getZip(): ?Zip
+    {
+        return $this->zip;
+    }
+
+    public function setZip(?Zip $zip): self
+    {
+        $this->zip = $zip;
 
         return $this;
     }

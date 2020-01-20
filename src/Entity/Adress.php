@@ -24,21 +24,13 @@ class Adress
     private $city;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Zip")
-     */
-    private $zip;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Street")
+     * @ORM\Column(type="string", length=255)
      */
     private $street;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
-    
+
+
 
     public function getCity(): ?City
     {
@@ -52,27 +44,17 @@ class Adress
         return $this;
     }
 
-    public function getZip(): ?Zip
-    {
-        return $this->zip;
-    }
-
-    public function setZip(?Zip $zip): self
-    {
-        $this->zip = $zip;
-
-        return $this;
-    }
-
-    public function getStreet(): ?Street
+    public function getStreet(): ?string
     {
         return $this->street;
     }
 
-    public function setStreet(?Street $street): self
+    public function setStreet(string $street): self
     {
         $this->street = $street;
 
         return $this;
     }
+
+
 }

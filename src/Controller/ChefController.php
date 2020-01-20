@@ -29,7 +29,7 @@ class ChefController extends AbstractController
         'email' => $user->getEmail(),
         'adress' => [
           'city' => $adress->getCity()->getName(),
-          'zip' => $adress->getZip()->getCode(),
+          'zip' => $adress->getCity()->getZip()->getCode(),
         ],
       ]);
     }
