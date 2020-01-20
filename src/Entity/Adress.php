@@ -16,10 +16,7 @@ class Adress
      */
     private $id;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $street;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\City")
@@ -31,22 +28,17 @@ class Adress
      */
     private $zip;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Street")
+     */
+    private $street;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getStreet(): ?string
-    {
-        return $this->street;
-    }
-
-    public function setStreet(?string $street): self
-    {
-        $this->street = $street;
-
-        return $this;
-    }
+    
 
     public function getCity(): ?City
     {
@@ -68,6 +60,18 @@ class Adress
     public function setZip(?Zip $zip): self
     {
         $this->zip = $zip;
+
+        return $this;
+    }
+
+    public function getStreet(): ?Street
+    {
+        return $this->street;
+    }
+
+    public function setStreet(?Street $street): self
+    {
+        $this->street = $street;
 
         return $this;
     }
